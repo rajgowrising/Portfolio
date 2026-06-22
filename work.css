@@ -1,0 +1,213 @@
+/* =============================================
+   work.css
+   Styles specific to work.html: page intro,
+   experience timeline, expertise grid, education
+   list. Loaded only on the Work page.
+   ============================================= */
+
+/* ============ PAGE INTRO ============ */
+.page-hero{
+  padding:160px 0 60px;
+  background:var(--ink);
+}
+.page-title{
+  font-size:clamp(40px, 6vw, 72px);
+  line-height:1.02;
+  margin-bottom:18px;
+}
+.page-sub{
+  color:var(--slate-light);
+  font-size:17px;
+  max-width:560px;
+}
+
+/* ============ EXPERIENCE TIMELINE ============ */
+#experience{ background:var(--ink); }
+.timeline{
+  position:relative;
+  margin-top:10px;
+}
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:108px;
+  top:8px; bottom:8px;
+  width:1px;
+  background:linear-gradient(to bottom, rgba(92,124,255,0.5), rgba(92,124,255,0.05));
+}
+
+.tl-item{
+  position:relative;
+  display:grid;
+  grid-template-columns:108px 1fr;
+  gap:40px;
+  padding-bottom:56px;
+}
+.tl-item:last-child{ padding-bottom:0; }
+
+.tl-date{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  color:var(--slate-light);
+  padding-top:4px;
+  text-align:right;
+}
+.tl-node{
+  position:absolute;
+  left:103px;
+  top:6px;
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--ink);
+  border:2px solid var(--blue-soft);
+}
+.tl-item.is-current .tl-node{
+  background:var(--amber);
+  border-color:var(--amber);
+  box-shadow:0 0 0 5px rgba(255,178,62,0.18);
+}
+
+.tl-card{
+  background:var(--ink-soft);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:28px 30px;
+  transition:border-color .25s ease, transform .25s ease;
+}
+.tl-card:hover{
+  border-color:rgba(92,124,255,0.45);
+  transform:translateX(4px);
+}
+.tl-status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--amber);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  margin-bottom:14px;
+}
+.tl-role{
+  font-family:var(--font-display);
+  font-size:21px;
+  color:var(--paper);
+  margin-bottom:4px;
+}
+.tl-org{
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:var(--blue-soft);
+  margin-bottom:14px;
+}
+.tl-desc{
+  color:var(--slate-light);
+  font-size:15px;
+  max-width:640px;
+}
+.tl-desc ul{ margin-top:10px; padding-left:0; }
+.tl-desc li{
+  padding-left:18px;
+  position:relative;
+  margin-bottom:6px;
+}
+.tl-desc li::before{
+  content:'—';
+  position:absolute;
+  left:0;
+  color:var(--slate);
+}
+
+/* ============ EXPERTISE ============ */
+#expertise{ background:var(--paper); color:var(--ink); }
+.exp-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1px;
+  background:var(--line-on-paper);
+  border:1px solid var(--line-on-paper);
+  border-radius:18px;
+  overflow:hidden;
+}
+.exp-cell{
+  background:var(--paper);
+  padding:34px 30px;
+}
+.exp-cell-title{
+  font-family:var(--font-mono);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  color:var(--blue);
+  margin-bottom:18px;
+}
+.chip-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+.chip{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  padding:7px 13px;
+  border-radius:999px;
+  border:1px solid var(--line-on-paper);
+  color:#3A3F52;
+  background:#fff;
+}
+
+/* ============ EDUCATION ============ */
+#education{ background:var(--ink); }
+.edu-list{
+  display:flex;
+  flex-direction:column;
+}
+.edu-row{
+  display:grid;
+  grid-template-columns:140px 1fr auto;
+  gap:30px;
+  align-items:baseline;
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+}
+.edu-row:first-child{ border-top:1px solid var(--line); }
+.edu-period{
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:var(--amber);
+}
+.edu-school{
+  font-family:var(--font-display);
+  font-size:19px;
+  color:var(--paper);
+}
+.edu-degree{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  color:var(--slate-light);
+  margin-top:4px;
+}
+.edu-tag{
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--slate);
+  text-align:right;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 980px){
+  .exp-grid{ grid-template-columns:1fr; }
+  .timeline::before{ left:14px; }
+  .tl-item{ grid-template-columns:24px 1fr; gap:18px; }
+  .tl-date{ display:none; }
+  .tl-node{ left:9px; }
+}
+
+@media (max-width: 600px){
+  .page-hero{ padding:140px 0 40px; }
+  .edu-row{ grid-template-columns:1fr; gap:6px; }
+  .edu-tag{ text-align:left; }
+}

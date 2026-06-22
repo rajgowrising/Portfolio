@@ -1,0 +1,124 @@
+/* =============================================
+   contact.css
+   Styles specific to contact.html: page intro,
+   interests grid, contact details grid.
+   Loaded only on the Contact page.
+   ============================================= */
+
+/* ============ PAGE INTRO ============ */
+.page-hero{
+  padding:160px 0 60px;
+  background:var(--ink);
+}
+.page-title{
+  font-size:clamp(40px, 6vw, 72px);
+  line-height:1.02;
+  margin-bottom:18px;
+}
+.page-sub{
+  color:var(--slate-light);
+  font-size:17px;
+  max-width:560px;
+}
+
+/* ============ INTERESTS ============ */
+#interests{ background:var(--paper); color:var(--ink); }
+.int-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+}
+.int-card{
+  border:1px solid var(--line-on-paper);
+  border-radius:16px;
+  padding:28px 22px;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.int-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 36px -16px rgba(18,24,43,0.18);
+}
+.int-icon{
+  width:38px; height:38px;
+  margin-bottom:18px;
+}
+.int-icon svg{ width:100%; height:100%; }
+.int-title{
+  font-family:var(--font-display);
+  font-size:16px;
+  margin-bottom:6px;
+}
+.int-sub{
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:var(--slate);
+}
+
+/* ============ CONTACT ============ */
+#contact{
+  background:var(--ink);
+  text-align:center;
+}
+.eyebrow-center{ justify-content:center; }
+.contact-title{
+  font-size:clamp(36px, 6vw, 68px);
+  line-height:1.05;
+  max-width:760px;
+  margin:0 auto 28px;
+}
+.contact-title .hl{ color:var(--blue-soft); }
+.contact-sub{
+  color:var(--slate-light);
+  font-size:17px;
+  max-width:480px;
+  margin:0 auto 44px;
+}
+.contact-actions{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:56px;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  max-width:780px;
+  margin:0 auto;
+}
+.contact-cell{
+  background:var(--ink-soft);
+  padding:26px 20px;
+  text-align:left;
+}
+.contact-label{
+  font-family:var(--font-mono);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--slate);
+  margin-bottom:8px;
+}
+.contact-value{
+  font-family:var(--font-mono);
+  font-size:14px;
+  color:var(--paper);
+  word-break:break-word;
+}
+.contact-cell a.contact-value:hover{ color:var(--blue-soft); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 980px){
+  .int-grid{ grid-template-columns:repeat(2,1fr); }
+  .contact-grid{ grid-template-columns:1fr; }
+}
+
+@media (max-width: 600px){
+  .page-hero{ padding:140px 0 40px; }
+  .int-grid{ grid-template-columns:1fr; }
+}
